@@ -3,52 +3,194 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ngopa Ngopi — kopi lokal UMKM Pekalongan untuk teman belajar, bekerja, dan bersantai."
+    />
     <title>Kopi Lereng - Website UMKM</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="page">
-      <section class="hero">
-        <p class="eyebrow">UMKM Pekalongan</p>
-        <h1>Kopi Lereng</h1>
-        <p class="lead">
-          Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html">Ngopa Ngopi</a>
+        <ul>
+          <li><a aria-current="page" href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="konten">
+      <!-- BERANDA -->
+      <section id="beranda" class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">UMKM Pekalongan</p>
+            <h1 id="hero-title">Ngopa Ngopi</h1>
+            <p class="lead">
+              Kopi lokal pilihan untuk teman belajar, bekerja, dan
+              bersantai — diseduh sederhana agar rasa aslinya tetap terasa.
+            </p>
+            <button id="promoButton" type="button" class="cta-button">
+              Lihat promo hari ini
+            </button>
+          </div>
+          <figure class="hero-figure">
+            <img
+              src="assets/images/kopi-1.png"
+              alt="Gambar Coffe Latte"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- PROFIL SINGKAT -->
+      <section id="profil" aria-labelledby="profil-title">
+        <div class="profil-inner">
+          <div>
+            <p class="eyebrow">Profil Usaha</p>
+            <h2 id="profil-title">Profil Singkat</h2>
+            <p>
+              Ngopa Ngopi merupakan UMKM kopi lokal yang menyediakan
+              berbagai pilihan minuman kopi dengan cita rasa yang khas.
+            </p>
+            <p>
+              Kami menggunakan bahan kopi lokal berkualitas dan
+              mengolahnya dengan cara sederhana agar rasa dan aroma kopi
+              tetap terasa.
+            </p>
+          </div>
+          <ul class="value-list">
+            <li>
+              <strong>Kopi lokal</strong>
+              Biji kopi dari petani lokal, diolah tanpa bahan tambahan.
+            </li>
+            <li>
+              <strong>Harga terjangkau</strong>
+              Cocok untuk menemani aktivitas sehari-hari.
+            </li>
+            <li>
+              <strong>Racikan sederhana</strong>
+              Rasa dan aroma asli kopi tetap jadi fokus utama.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- MENU -->
+      <section id="menu" class="section" aria-labelledby="menu-title">
+        <div class="section-inner">
+          <div class="heading">
+            <div>
+              <p class="eyebrow dark">Menu Kami</p>
+              <h2 id="menu-title">Temukan favoritmu.</h2>
+            </div>
+            <p class="intro">
+              Dari kopi klasik sampai minuman segar, semuanya dibuat dari
+              bahan pilihan dengan rasa yang nyaman dinikmati.
+            </p>
+      
+          <div class="menu-grid">
+            <article class="card" data-category="coffee">
+              <div class="pic coffee">
+                <img
+                  src="assets/images/kopi-2.png"
+                  alt="Kopi Tubruk Signature"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body">
+                <div>
+                  <h3>Kopi Tubruk Signature</h3>
+                  <p>Diseduh kasar ala tradisional, pekat, dan pahitnya tegas.</p>
+                </div>
+                <b>Rp18.000</b>
+              </div>
+            </article>
+
+            <article class="card" data-category="coffee">
+              <div class="pic latte">
+                <img
+                  src="assets/images/kopi-3.webp"
+                  alt="Cold Brew Aren"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body">
+                <div>
+                  <h3>Cold Brew Aren</h3>
+                  <p>Diseduh dingin semalaman, halus di lidah, manis gula aren.</p>
+                </div>
+                <b>Rp22.000</b>
+              </div>
+            </article>
+
+            <article class="card" data-category="coffee">
+              <div class="pic cold">
+                <img
+                  src="assets/images/kopi-4.jpg"
+                  alt="Es Kopi Susu Gula Aren"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body">
+                <div>
+                  <h3>Es Kopi Susu Gula Aren</h3>
+                  <p>Kopi robusta, susu creamy, dan gula aren yang legit.</p>
+                </div>
+                <b>Rp20.000</b>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAK -->
+      <section id="kontak" class="contact" aria-labelledby="kontak-title">
+        <div class="kontak-inner">
+          <p class="eyebrow">Hubungi Kami</p>
+          <h2 id="kontak-title">Kontak Singkat</h2>
+
+          <dl class="kontak-card">
+            <div class="kontak-item">
+              <dt>Jam layanan</dt>
+              <dd>Setiap hari, 08.00 - 21.00 WIB</dd>
+            </div>
+            <div class="kontak-item">
+              <dt>Lokasi</dt>
+              <dd>Jl. Merdeka No. 12, Pekalongan, Jawa Tengah</dd>
+            </div>
+            <div class="kontak-item">
+              <dt>WhatsApp</dt>
+              <dd>
+                <a href="https://wa.me/6288980173718" target="_blank" rel="noopener"
+                  >0889-8017-3718</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+       <aside class="aside-note" aria-labelledby="aside-title">
+        <h2 id="aside-title">Lagi Cari Tempat Buat Ngopi?</h2>
+        <p>
+          Mampir aja ke Ngopa Ngopi. 
+          Nikmati kopi lokal dengan suasana yang adem dan santai. 
+          Cocok buat ngobrol, nugas, atau sekadar ngopi sambil menikmati suasana.
         </p>
-        <button id="promoButton" class="cta-button">
-          Cek Promo Kopi Lereng
-        </button>
-      </section>
-
-      <section class="products" aria-label="Produk unggulan">
-        <article class="product-card">
-          <h2>Kopi Tubruk Signature</h2>
-          <p>Rasa klasik, aroma kuat, dan cocok untuk pagi yang pelan.</p>
-          <span>Rp18.000</span>
-        </article>
-        <article class="product-card">
-          <h2>Cold Brew Aren</h2>
-          <p>Segar, ringan, dan manisnya pas untuk cuaca panas.</p>
-          <span>Rp22.000</span>
-        </article>
-        <article class="product-card">
-          <h2>Es Kopi Susu Gula Aren</h2>
-          <p>Perpaduan kopi robusta lokal dan gula aren asli Pekalongan, disajikan dingin dengan rasa manis legit yang tidak berlebihan.</p>
-          <span>Rp20.000</span>
-        </article>
-      </section>
-
-      <section class="info" aria-label="Jam buka dan lokasi">
-        <div class="info-card">
-          <h2>Jam Buka</h2>
-          <p>Setiap hari</p>
-          <p>08.00 - 21.00 WIB</p>
-        </div>
-        <div class="info-card">
-          <h2>Lokasi</h2>
-          <p>Jl. Merdeka No. 12, Pekalongan, Jawa Tengah</p>
-        </div>
-      </section>
+      </aside>
     </main>
-    <script src="js/script.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; 2026 Ngopa Ngopi. Data pada halaman ini bersifat dummy.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
