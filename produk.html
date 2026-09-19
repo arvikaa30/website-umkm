@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Semua produk kopi Ngopa Ngopi lengkap dengan kategori dan daftar harga."
+    />
+    <title>Produk Ngopa Ngopi - Website UMKM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html">Ngopa Ngopi</a>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a aria-current="page" href="produk.html">Produk</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="konten" class="page produk-page">
+      <section class="produk-intro" aria-labelledby="produk-hero-title">
+        <p class="eyebrow">Semua Produk</p>
+        <h1 id="produk-hero-title">Produk Ngopa Ngopi</h1>
+        <p>
+          Pilih produk sesuai kebutuhan seduh harian, kantor, atau untuk
+          menemani waktu santai.
+        </p>
+      </section>
+
+      <section aria-labelledby="kategori-title">
+        <h2 id="kategori-title">Kategori Produk</h2>
+        <ul class="kategori-list">
+          <li><strong>Klasik</strong>Racikan tradisional dengan rasa bold dan pekat.</li>
+          <li><strong>Fresh</strong>Sajian dingin yang segar, cocok menemani santai.</li>
+          <li><strong>Creamy</strong>Perpaduan susu, gula aren, atau buah yang manis lembut.</li>
+          <li><strong>Matcha</strong>Racikan matcha premium untuk pencinta rasa hijau.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="produk-title">
+        <h2 id="produk-title">Pilihan Produk</h2>
+
+        <p class="menu-baru-label">Baru diluncurkan</p>
+        <div class="menu-grid menu-grid-new">
+          <!-- Produk baru: ditampilkan sendiri di atas, ukuran kartu tetap sama dengan produk lain -->
+          <article class="card" data-category="creamy">
+            <div class="pic raspberry">
+              <span class="badge">Baru</span>
+              <img
+                src="assets/images/raspberry-latte.jpg"
+                alt="Es kopi susu dengan saus raspberry di dasar gelas, dituang bertingkat, dan ditaburi raspberry segar di atasnya"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Raspberry Danish Latte</h3>
+                <p>Espresso, susu creamy, dan saus raspberry yang dituang bertingkat, ditutup raspberry segar di atasnya.</p>
+              </div>
+              <b>Rp26.000</b>
+            </div>
+          </article>
+        </div>
+
+        <p class="menu-lain-label">Produk lainnya</p>
+        <div class="menu-grid" id="menuGrid">
+          <article class="card" data-category="klasik">
+            <div class="pic klasik">
+              <img src="assets/images/kopi-tubruk.jpg" alt="Kopi Tubruk Signature" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Kopi Tubruk Signature</h3>
+                <p>Diseduh kasar ala tradisional, pekat, dan pahitnya tegas.</p>
+              </div>
+              <b>Rp18.000</b>
+            </div>
+          </article>
+
+          <article class="card" data-category="fresh">
+            <div class="pic fresh">
+              <img src="assets/images/cold-brew-aren.jpg" alt="Cold Brew Aren" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Cold Brew Aren</h3>
+                <p>Diseduh dingin semalaman, halus di lidah, manis gula aren.</p>
+              </div>
+              <b>Rp22.000</b>
+            </div>
+          </article>
+
+          <article class="card" data-category="creamy">
+            <div class="pic creamy">
+              <img src="assets/images/kopsu-aren.jpg" alt="Es Kopi Susu Gula Aren" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Es Kopi Susu Gula Aren</h3>
+                <p>Kopi robusta, susu creamy, dan gula aren yang legit.</p>
+              </div>
+              <b>Rp20.000</b>
+            </div>
+          </article>
+
+          <article class="card" data-category="creamy">
+            <div class="pic creamy">
+              <img src="assets/images/caramel-macchiato.jpg" alt="Caramel Macchiato" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Caramel Macchiato</h3>
+                <p>Espresso lembut berlapis susu creamy dan saus karamel manis gurih.</p>
+              </div>
+              <b>Rp23.000</b>
+            </div>
+          </article>
+
+          <article class="card" data-category="matcha">
+            <div class="pic matcha">
+              <img src="assets/images/matcha-kopi.jpg" alt="Matcha Espresso" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Matcha Espresso</h3>
+                <p>Perpaduan matcha premium dan double shot espresso, pahit-manis seimbang.</p>
+              </div>
+              <b>Rp24.000</b>
+            </div>
+          </article>
+
+          <article class="card" data-category="creamy">
+            <div class="pic creamy">
+              <img src="assets/images/hazelnut-latte.jpg" alt="Hazelnut Latte" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Hazelnut Latte</h3>
+                <p>Espresso dengan susu creamy dan sentuhan sirup hazelnut yang harum.</p>
+              </div>
+              <b>Rp21.000</b>
+            </div>
+          </article>
+        </div>
+
+        <p class="empty-state" id="emptyState" hidden>
+          Belum ada produk untuk kategori ini.
+        </p>
+      </section>
+
+      <section aria-labelledby="harga-title">
+        <h2 id="harga-title">Daftar Harga</h2>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Daftar harga produk Ngopa Ngopi</caption>
+
+            <thead>
+              <tr>
+                <th scope="col">Produk</th>
+                <th scope="col">Ukuran</th>
+                <th scope="col">Harga</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row">Raspberry Danish Latte</th>
+                <td>250 ml</td>
+                <td>Rp26.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Kopi Tubruk Signature</th>
+                <td>250 ml</td>
+                <td>Rp18.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Cold Brew Aren</th>
+                <td>250 ml</td>
+                <td>Rp22.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Es Kopi Susu Gula Aren</th>
+                <td>250 ml</td>
+                <td>Rp20.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Caramel Macchiato</th>
+                <td>250 ml</td>
+                <td>Rp23.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Matcha Espresso</th>
+                <td>250 ml</td>
+                <td>Rp24.000</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Hazelnut Latte</th>
+                <td>250 ml</td>
+                <td>Rp21.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; 2026 Ngopa Ngopi. Data pada halaman ini bersifat dummy.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

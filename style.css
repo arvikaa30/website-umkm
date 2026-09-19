@@ -1,5 +1,5 @@
 /* ==========================================================
-   Kopi Lereng — stylesheet
+   Ngopa Ngopi — stylesheet
    ========================================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap");
@@ -73,7 +73,17 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
+}
+
+figure {
+  margin: 0 0 24px;
+}
+
+figcaption {
+  margin-top: 8px;
+  color: var(--roast);
 }
 
 :focus-visible {
@@ -121,6 +131,10 @@ section {
   font-size: 1.05rem;
   color: var(--roast);
   margin: 0 0 6px;
+}
+
+.eyebrow.dark {
+  color: var(--amber-deep);
 }
 
 /* ---------- Header / nav ---------- */
@@ -216,6 +230,7 @@ section {
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 15%);
   box-shadow: 0 24px 48px rgb(0 0 0 / 30%);
+  margin: 0;
 }
 
 .hero-figure img {
@@ -236,6 +251,7 @@ section {
   font-size: 1rem;
   cursor: pointer;
   margin-top: 8px;
+  text-decoration: none;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
@@ -297,10 +313,6 @@ section {
   margin-bottom: 28px;
 }
 
-.eyebrow.dark {
-  color: var(--amber-deep);
-}
-
 .heading h2 {
   font-size: 1.9rem;
   margin: 0;
@@ -356,32 +368,25 @@ section {
   overflow: hidden;
 }
 
+.card[hidden] {
+  display: none;
+}
+
 .pic {
   position: relative;
   aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.pic.coffee {
-  background: linear-gradient(150deg, #d8b184, #8a5a34);
-}
-
-.pic.latte {
-  background: linear-gradient(150deg, #f1dcb8, #d3a86c);
-}
-
-.pic.cold {
-  background: linear-gradient(150deg, #cfe4dc, #9dc3b6);
+  overflow: hidden;
 }
 
 .pic img {
-  max-height: 100%;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgb(0 0 0 / 25%));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
+
+.pic.raspberry {
+  background: none;
 }
 
 .badge {
@@ -394,6 +399,7 @@ section {
   font-weight: 600;
   padding: 5px 11px;
   border-radius: 999px;
+  z-index: 1;
 }
 
 .card-body {
@@ -402,6 +408,7 @@ section {
   justify-content: space-between;
   gap: 12px;
   padding: 18px;
+  margin: 0;
 }
 
 .card-body h3 {
@@ -477,7 +484,7 @@ section {
   text-decoration-color: var(--amber);
 }
 
-/* ---------- Tentang page ---------- */
+/* ---------- Halaman "Tentang" ---------- */
 
 .page-intro {
   background: var(--cream-soft);
@@ -542,6 +549,215 @@ section {
   font-size: 0.88rem;
 }
 
+/* ---------- Halaman Produk ---------- */
+
+.produk-page section {
+  padding: 40px 0;
+}
+
+.produk-page section:first-child {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.produk-page section:last-child {
+  padding-bottom: 56px;
+}
+
+.produk-intro p {
+  color: var(--roast);
+}
+
+.kategori-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.kategori-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: 0.95rem;
+}
+
+.kategori-list strong {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--espresso);
+  margin-bottom: 2px;
+}
+
+.menu-baru-label,
+.menu-lain-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--roast);
+  margin: 0 0 14px;
+}
+
+.menu-grid-new {
+  margin-bottom: 40px;
+}
+
+.menu-grid-new .card {
+  display: grid;
+  grid-template-columns: 1.2fr 1.fr;
+  border: 1px solid var(--amber);
+}
+
+.menu-grid-new .pic {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.menu-grid-new .card-body {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  padding: 28px;
+}
+
+.menu-grid-new .card-body p {
+  max-width: 40ch;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--roast);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  padding: 32px;
+}
+
+/* ---------- Tabel harga ---------- */
+
+.table-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table-wrap caption {
+  caption-side: top;
+  text-align: left;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--roast);
+  font-size: 0.85rem;
+  padding: 16px 20px 0;
+}
+
+.table-wrap thead th {
+  background: var(--espresso);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 20px;
+  white-space: nowrap;
+}
+
+.table-wrap thead th:last-child,
+.table-wrap tbody td:last-child {
+  text-align: right;
+}
+
+.table-wrap tbody th,
+.table-wrap tbody td {
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.table-wrap tbody th {
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-align: left;
+  color: var(--ink);
+}
+
+.table-wrap tbody td:last-child {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--amber-deep);
+}
+
+.table-wrap tbody tr:hover {
+  background: var(--cream-soft);
+}
+
+/* ---------- Halaman Galeri ---------- */
+
+.galeri-page section {
+  padding: 40px 0;
+}
+
+.galeri-page section:first-child {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.galeri-page section:last-child {
+  padding-bottom: 56px;
+}
+
+.galeri-intro p {
+  color: var(--roast);
+}
+
+.gallery-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.media-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 0;
+}
+
+.media-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.media-card figcaption {
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  color: var(--roast);
+}
+
+.audio-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.audio-card audio {
+  width: 100%;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 820px) {
@@ -569,13 +785,30 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .menu-grid-new .card {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid-new .pic {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
   .kontak-card {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
   .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-list {
     grid-template-columns: 1fr;
   }
 
@@ -597,5 +830,27 @@ section {
 
   .nav ul {
     gap: 16px;
+  }
+
+  .produk-page section,
+  .galeri-page section {
+    padding: 28px 0;
+  }
+
+  .produk-page section:first-child,
+  .galeri-page section:first-child {
+    padding-top: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-wrap table {
+    font-size: 0.88rem;
+  }
+
+  .table-wrap thead th,
+  .table-wrap tbody th,
+  .table-wrap tbody td {
+    padding: 12px 14px;
   }
 }
