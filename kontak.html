@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontak Ngopa Ngopi - Website UMKM</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html">Ngopa Ngopi</a>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a aria-current="page" href="kontak.html">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="konten" class="page kontak-page">
+      <section class="kontak-intro" aria-labelledby="kontak-title">
+        <p class="eyebrow">Hubungi Kami</p>
+        <h1 id="kontak-title">Kontak Ngopa Ngopi</h1>
+        <p>
+          Punya pertanyaan atau ingin pesan kopi? Hubungi Ngopa Ngopi untuk
+          mendapatkan informasi tentang produk, pemesanan, dan kerja sama.
+        </p>
+      </section>
+
+      <section class="kontak-form-section">
+        <div class="form-card">
+          <h2 id="form-title">Kirim Pesan</h2>
+          <form id="form-kontak" action="#" method="post" aria-labelledby="form-title">
+            <div class="field">
+              <label for="nama">Nama lengkap</label>
+              <input
+                id="nama"
+                name="nama"
+                type="text"
+                autocomplete="name"
+                required
+                minlength="3"
+                placeholder="Nama Anda"
+              />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="nama@email.com"
+              />
+            </div>
+
+            <div class="field">
+              <label for="whatsapp">Nomor WhatsApp</label>
+              <input
+                id="whatsapp"
+                name="whatsapp"
+                type="tel"
+                inputmode="numeric"
+                autocomplete="tel"
+                placeholder="08xxxxxxxxxx"
+              />
+              <small>Opsional, isi jika ingin dihubungi melalui WhatsApp.</small>
+            </div>
+
+            <div class="field">
+              <label for="paket">Paket yang diminati</label>
+              <select id="paket" name="paket" required>
+                <option value="">Pilih paket</option>
+                <option value="rumahan">Untuk konsumsi pribadi/rumah</option>
+                <option value="kantor">Pemesanan untuk kantor/instansi</option>
+                <option value="reseller">Kerja sama sebagai reseller/mitra</option>
+                <option value="reservasi">Reservasi tempat/acara</option>
+              </select>
+            </div>
+
+            <fieldset class="field">
+              <legend>Topik pertanyaan</legend>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="topik" value="produk" required />
+                  Info seputar menu &amp; produk
+                </label>
+                <label>
+                  <input type="radio" name="topik" value="pesanan" />
+                  Cek status pesanan
+                </label>
+                <label>
+                  <input type="radio" name="topik" value="kerja-sama" />
+                  Peluang kerja sama
+                </label>
+                <label>
+                  <input type="radio" name="topik" value="kritik-saran" />
+                  Kritik &amp; saran
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Waktu yang nyaman untuk dihubungi/reservasi</legend>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="waktu" value="pagi" />
+                  Pagi hari (08.00–11.00)
+                </label>
+                <label>
+                  <input type="radio" name="waktu" value="siang" />
+                  Siang hari (11.00–15.00)
+                </label>
+                <label>
+                  <input type="radio" name="waktu" value="sore"  />
+                  Sore hari (15.00–18.00)
+                </label>
+                <small>Opsional, isi jika ingin menentukan waktu untuk dihubungi.</small>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="pesan">Pesan</label>
+              <textarea
+                id="pesan"
+                name="pesan"
+                rows="4"
+                placeholder="Tulis pertanyaan atau catatan pesanan Anda di sini..."
+                required
+              ></textarea>
+              <small>Silakan isi pesan yang ingin disampaikan.</small>
+            </div>
+
+            <button type="submit" class="cta-button">Kirim Pesan</button>
+          </form>
+        </div>
+
+        <div class="preview-card" aria-labelledby="preview-title">
+          <h2 id="preview-title">Preview Data</h2>
+          <pre id="preview-form" aria-live="polite">Data form akan muncul setelah tombol dikirim.</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; 2026 Ngopa Ngopi. Data pada halaman ini bersifat dummy.</p>
+      </div>
+    </footer>
+
+    <script src="js/form.js" defer></script>
+  </body>
+</html>
