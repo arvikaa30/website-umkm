@@ -21,6 +21,7 @@ const waktuLabels = {
   sore: "Sore (15.00–18.00)",
 };
 
+if (form && preview) {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -43,3 +44,4 @@ form.addEventListener("submit", (event) => {
 
   form.reset();
 });
+}

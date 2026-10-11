@@ -1,46 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
 /* 1. DESIGN TOKENS */
 :root {
-  /* --- Tokens warna berbasis FUNGSI (bukan berbasis nama warna) --- */
-
   /* Brand */
-  --color-brand-primary: #6f3b1f;          /* identitas utama; putih di atasnya ±9:1 */
-  --color-brand-primary-strong: #4b2715;   /* hover / penekanan; putih ±13:1 */
+  --color-brand-primary: #6f3b1f;
+  --color-brand-primary-strong: #4b2715;
 
   /* Teks */
-  --color-text-default: #2f2118;           /* di atas #fff8f0 ±14:1 */
-  --color-text-muted: #6b5b52;             /* di atas #fff8f0 ±6:1 */
-  --color-text-accent: #7c2d12;            /* harga & eyebrow; di atas putih ±9:1 */
-  --color-text-on-brand: #ffffff;          /* teks di atas brand-primary */
-  --color-text-on-brand-soft: #fef3c7;     /* teks sekunder di atas brand (±8:1) */
+  --color-text-default: #2f2118;
+  --color-text-muted: #6b5b52;
+  --color-text-accent: #7c2d12;
+  --color-text-on-brand: #ffffff;
+  --color-text-on-brand-soft: #fef3c7;
 
   /* Background */
   --color-bg-page: #fff8f0;
-  --color-bg-surface: #ffffff;             /* kartu, form, tabel */
-  --color-bg-interactive: #6f3b1f;         /* tombol default */
-  --color-bg-interactive-hover: #4b2715;   /* tombol hover */
-  --color-bg-highlight: #fef3c7;           /* menu aktif, aside, tombol di hero */
-  --color-bg-badge: #9a3412;               /* badge "Baru"; putih di atasnya ±7:1 */
+  --color-bg-surface: #ffffff;
+  --color-bg-interactive: #6f3b1f;
+  --color-bg-interactive-hover: #4b2715;
+  --color-bg-highlight: #fef3c7;
+  --color-bg-badge: #9a3412;
 
   /* Border & fokus */
-  --color-border-default: #dccbbc;
-  --color-border-focus: #1d4ed8;           /* fokus di latar terang (±6:1) */
-  --color-border-focus-inverse: #fde68a;   /* fokus di latar gelap/brand (±7:1) */
+  --color-border-default: #e4d5c6;
+  --color-border-focus: #1d4ed8;
+  --color-border-focus-inverse: #fde68a;
 
-  /* --- Tokens spacing --- */
+  /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
 
-  /* --- Tokens radius --- */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1.25rem;
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.5rem;
 
-  /* --- Tokens lain --- */
-  --shadow-card: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
-  --container-width: 60rem;
+  /* Lain-lain */
+  --shadow-card: 0 0.25rem 1rem rgb(47 33 24 / 0.07);
+  --shadow-header: 0 1px 0 var(--color-border-default);
+  --container-width: 62rem;
+
+  /* Gaya tampilan baru */
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --color-bg-section-alt: #f7ecdc;
+  --color-bg-card: #fffaf2;
+  --color-border-card: #dcc3a6;
+  --color-accent-line: #c2813a;
 }
 
 
@@ -49,7 +58,9 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { color-scheme: light; }
+html {
+  color-scheme: light;
+}
 
 body {
   margin: 0;
@@ -57,46 +68,52 @@ body {
   background: var(--color-bg-page);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; height: auto; }
 figure { margin: 0; }
-figcaption { margin-top: var(--spacing-sm); color: var(--color-text-muted); }
+figcaption { margin-top: var(--spacing-sm); color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.55; }
 
-a { color: var(--color-brand-primary); }
+a { color: var(--color-brand-primary); text-underline-offset: 0.2em; }
 a:hover { color: var(--color-brand-primary-strong); }
 
-h1, h2, h3 { line-height: 1.2; text-wrap: balance; }
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; letter-spacing: -0.01em; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; }
+h3 { font-weight: 700; }
 h1 { font-size: clamp(2rem, 6vw, 3rem); margin-block: 0 var(--spacing-md); }
-h2 { margin-block: 0 var(--spacing-md); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 1.875rem); margin-block: 0 var(--spacing-md); }
 p, li { max-width: 68ch; }
+p { margin-block: 0 var(--spacing-md); }
 
 .eyebrow {
   margin: 0 0 var(--spacing-sm);
-  color: var(--color-text-accent);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
-.eyebrow.dark { color: var(--color-text-accent); }
 
 
 /* 3. AKSESIBILITAS: FOCUS INDICATOR & SKIP LINK */
-/* Fokus dasar: outline tebal 3px + jarak, kontras >3:1 di latar terang */
 :focus-visible {
   outline: 3px solid var(--color-border-focus);
   outline-offset: 3px;
 }
 
-/* Di latar gelap/brand, biru kurang kontras -> pakai kuning terang */
 .hero :focus-visible,
+.produk-intro :focus-visible,
+.galeri-intro :focus-visible,
+.kontak-intro :focus-visible,
 .site-footer :focus-visible,
 .skip-link:focus-visible {
   outline-color: var(--color-border-focus-inverse);
 }
 
-/* Field form: outline + ganti warna border supaya makin jelas */
 .field input:focus-visible,
 .field select:focus-visible,
 .field textarea:focus-visible {
@@ -108,6 +125,7 @@ p, li { max-width: 68ch; }
   position: absolute;
   top: -5rem;
   left: var(--spacing-md);
+  z-index: 100;
   padding: var(--spacing-sm) var(--spacing-md);
   color: var(--color-text-on-brand);
   background: var(--color-text-default);
@@ -116,16 +134,15 @@ p, li { max-width: 68ch; }
 .skip-link:focus { top: var(--spacing-md); }
 
 
-/* 4. LAYOUT (tanpa Grid/Flexbox: inline-block + lebar persentase) */
+/* 4. LAYOUT */
 .site-header {
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--color-bg-surface);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-bg-page);
   border-bottom: 1px solid var(--color-border-default);
 }
 
 .nav,
 .page,
-.hero-inner,
 .profil-inner,
 .section-inner,
 .kontak-inner,
@@ -135,83 +152,105 @@ p, li { max-width: 68ch; }
   margin-inline: auto;
 }
 
+/* Navigasi */
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .brand {
-  display: inline-block;
-  margin-bottom: var(--spacing-sm);
   color: var(--color-text-default);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
   text-decoration: none;
 }
-.nav ul { padding: 0; margin: 0; list-style: none; }
-.nav li {
-  display: inline-block;
-  margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
+.brand:hover { color: var(--color-brand-primary); }
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-.nav a {
+.nav li { max-width: none; }
+.nav ul a {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-sm);
+  color: var(--color-text-default);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease;
 }
-.nav a:hover { background: var(--color-bg-highlight); }
+.nav ul a:hover { border-bottom-color: var(--color-brand-primary); }
 .nav a[aria-current="page"] {
   color: var(--color-brand-primary-strong);
   font-weight: 700;
-  text-decoration: none;
-  background: var(--color-bg-highlight);
+  border-bottom-color: var(--color-brand-primary);
 }
 
 .page { padding-block: var(--spacing-xl); }
-main > section { padding-block: var(--spacing-lg); }
+main > section { padding-block: var(--spacing-xl); }
 
-/* Kolom berdampingan tanpa flex/grid: inline-block, whitespace dinolkan */
-.hero-inner,
-.profil-inner { font-size: 0; }
-.hero-inner > div,
-.hero-inner > figure,
-.profil-inner > div,
-.profil-inner > ul {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 1rem;
-  min-width: 16rem;
-  margin: 0;
+/* Profil: dua kolom */
+.profil-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: var(--spacing-2xl);
+  align-items: center;
 }
-.hero-inner > div,
-.profil-inner > div { width: 56%; padding-right: var(--spacing-lg); }
-.hero-inner > figure,
-.profil-inner > ul { width: 42%; }
 
 
 /* 5. KOMPONEN */
 
 /* ---- 5a. HERO ---- */
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-areas: "content image";
+  gap: var(--spacing-2xl);
+  align-items: center;
   width: min(100% - 2rem, var(--container-width));
-  margin: var(--spacing-lg) auto;
-  padding: var(--spacing-xl);
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  padding: clamp(1.5rem, 5vw, 3rem);
   color: var(--color-text-on-brand);
   background: var(--color-brand-primary);
   border-radius: var(--radius-lg);
 }
 .hero .eyebrow { color: var(--color-text-on-brand-soft); }
-.hero .lead { margin-top: 0; }
-.hero-inner { width: 100%; }
-.hero-figure img { display: block; width: 100%; border-radius: var(--radius-md); }
+.hero .lead { margin: 0 0 var(--spacing-lg); font-size: 1.125rem; line-height: 1.65; }
+.hero-content { grid-area: content; }
+.hero-image {
+  grid-area: image;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
 
-/* ---- 5b. BUTTON (komponen #1 yang memakai token baru) ---- */
+/* ---- 5b. BUTTON ---- */
 .button,
 .cta-button,
 button {
   display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.625rem var(--spacing-lg);
   color: var(--color-text-on-brand);
   font: inherit;
   font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   background: var(--color-bg-interactive);
   border: 2px solid transparent;
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
 }
 .button:hover,
 .cta-button:hover,
@@ -220,9 +259,7 @@ button:hover {
   background: var(--color-bg-interactive-hover);
 }
 
-/* Tombol di atas hero (latar brand) dibalik: terang di atas gelap.
-   Sengaja memakai selector .hero button:hover (specificity lebih tinggi)
-   agar teks tidak ikut menjadi putih dari button:hover di atas. */
+/* Tombol di atas hero (latar brand): terang di atas gelap */
 .hero .cta-button,
 .hero button {
   color: var(--color-text-default);
@@ -234,8 +271,9 @@ button:hover {
   background: var(--color-border-focus-inverse);
 }
 
-/* ---- 5c. CARD (komponen #2) + BADGE (komponen #3) ---- */
+/* ---- 5c. CARD + BADGE ---- */
 .card,
+.product-card,
 .media-card,
 .form-card,
 .preview-card {
@@ -245,149 +283,388 @@ button:hover {
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
+.product-card,
 .form-card,
-.preview-card,
+.preview-card { padding: var(--spacing-lg); }
 .media-card { padding: var(--spacing-md); }
 
-.menu-grid .card,
-.gallery-list .media-card { display: block; margin: 0 0 var(--spacing-md); }
+/* Grid daftar kartu */
+.menu-grid,
+.product-grid,
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+.gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-.pic { position: relative; }
-.pic img { display: block; width: 100%; height: auto; }
-.card-body { padding: var(--spacing-md); }
+/* Produk baru: Grid satu kolom selebar 26rem */
+.menu-grid.menu-grid-new { grid-template-columns: minmax(0, 26rem); }
+
+/* Produk baru: lebih besar dari kartu lain, foto ukuran asli, teks di bawah foto */
+.menu-grid-new .pic {
+  aspect-ratio: auto;
+  background: var(--color-bg-surface);
+}
+.menu-grid-new .pic img {
+  height: auto;
+  object-fit: contain;
+}
+.menu-grid-new .card-body {
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+.menu-grid-new .card-body h3 { font-size: 1.125rem; }
+.menu-grid-new .card-body b { font-size: 1.5rem; }
+
+/* Positioning: .pic = containing block untuk .badge (position: absolute) */
+.pic {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-bg-highlight);
+}
+.pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-card);
+  border-color: var(--color-border-card);
+}
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
 .card-body h3 { margin: 0 0 var(--spacing-xs); font-size: 1.125rem; }
-.card-body p { margin: 0 0 var(--spacing-sm); color: var(--color-text-muted); }
-.card-body b {
+.card-body p { margin: 0; color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.55; }
+.card-body b,
+.price {
   display: block;
   color: var(--color-text-accent);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
 }
-.media-card img { display: block; width: 100%; border-radius: var(--radius-sm); }
+
+.product-thumb {
+  display: none; /* Produk Pilihan tanpa gambar */
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+.media-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
 
 .badge {
   position: absolute;
   top: var(--spacing-sm);
   left: var(--spacing-sm);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  color: var(--color-text-on-brand);
-  font-size: 0.875rem;
+  padding: var(--spacing-xs) var(--spacing-md);
+  color: var(--color-text-default);
+  font-size: 0.8125rem;
   font-weight: 700;
-  background: var(--color-bg-badge);
-  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+  border-radius: 999px;
 }
+
+/* Kartu produk */
+/* Positioning: .product-card = containing block untuk .product-badge (position: absolute) */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-top: 3.5rem; /* ruang aman agar badge tidak menutupi judul */
+}
+.product-card h3,
+.product-card p { margin: 0; }
+.product-card h3 { font-size: 1.125rem; }
+.product-card p { color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.55; }
+.product-card .price { color: var(--color-text-accent); margin-top: var(--spacing-xs); }
+.product-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  color: var(--color-brand-primary-strong);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  background: var(--color-bg-highlight);
+  border-radius: 999px;
+}
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+}
+.card-actions .button { padding: var(--spacing-sm) var(--spacing-md); font-size: 0.9375rem; }
+.card-actions a:not(.button) { font-size: 0.9375rem; }
 
 .menu-baru-label,
 .menu-lain-label {
-  margin: var(--spacing-md) 0 var(--spacing-sm);
-  color: var(--color-text-accent);
-  font-weight: 800;
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 400;
 }
 .empty-state { color: var(--color-text-muted); }
 
 /* ---- 5d. FORM ---- */
-.field { margin-bottom: var(--spacing-md); }
+.kontak-form-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin: 0;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .field label,
 legend { display: block; margin-bottom: var(--spacing-sm); font-weight: 700; }
-.field small { display: block; margin-top: var(--spacing-xs); color: var(--color-text-muted); }
+.field small { display: block; margin-top: var(--spacing-xs); color: var(--color-text-muted); font-size: 0.875rem; }
 
 .field input,
 .field select,
 .field textarea {
   display: block;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.625rem var(--spacing-md);
   color: inherit;
   font: inherit;
   background: var(--color-bg-surface);
-  border: 1px solid var(--color-text-muted);  /* border input >3:1 (WCAG 1.4.11) */
+  border: 1px solid var(--color-text-muted);
   border-radius: var(--radius-sm);
 }
-/* Specificity dibuat eksplisit (0,2,1) agar TIDAK bergantung urutan kode */
+.field textarea { resize: vertical; min-height: 7rem; }
 .field input[type="radio"],
 .field input[type="checkbox"] {
   display: inline-block;
   width: auto;
   margin-right: var(--spacing-sm);
 }
-.radio-group label { display: block; font-weight: 400; }
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.radio-group label { display: block; margin-bottom: 0; font-weight: 400; }
 
 fieldset {
-  margin: 0 0 var(--spacing-md);
-  padding: var(--spacing-md);
+  min-width: 0;
+  margin: 0;
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-sm);
 }
-.form-card form { margin: 0; }
+legend { padding-inline: var(--spacing-sm); }
 
 #preview-form {
   margin: 0;
   padding: var(--spacing-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
   background: var(--color-bg-page);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-sm);
 }
-audio { max-width: 100%; }
+audio { display: block; width: 100%; max-width: 32rem; }
 
 
 /* 6. BAGIAN HALAMAN */
 #profil { background: var(--color-bg-surface); }
 .value-list { padding: 0; margin: 0; list-style: none; }
 .value-list li {
-  margin-bottom: var(--spacing-sm);
-  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background: var(--color-bg-page);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
 }
+.value-list li:last-child { margin-bottom: 0; }
 .value-list strong { display: block; color: var(--color-text-accent); }
 
-.heading .intro { color: var(--color-text-muted); }
+/* Judul bagian menu: judul kiri, pengantar kanan */
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-xl);
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+}
+.heading h2 { margin-bottom: 0; }
+.heading .intro { max-width: 34rem; margin: 0; color: var(--color-text-muted); }
 
 .contact {
   background: var(--color-bg-surface);
   border-block: 1px solid var(--color-border-default);
 }
 .kontak-card { margin: 0; }
-.kontak-item { padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border-default); }
-.kontak-item dt { font-weight: 700; }
+.kontak-item { padding: var(--spacing-md) 0; border-bottom: 1px solid var(--color-border-default); }
+.kontak-item:first-child { padding-top: 0; }
+.kontak-item:last-child { padding-bottom: 0; border-bottom: 0; }
+.kontak-item dt { color: var(--color-text-muted); font-size: 0.9375rem; font-weight: 700; }
 .kontak-item dd { margin: 0; }
 
 .aside-note {
   width: min(100% - 2rem, var(--container-width));
-  margin: var(--spacing-lg) auto;
-  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) auto 0;
+  padding: clamp(1.5rem, 4vw, 2rem);
   color: var(--color-text-default);
   background: var(--color-bg-highlight);
   border-radius: var(--radius-lg);
 }
 .aside-note h2 { margin-top: 0; }
+.aside-note p:last-child { margin-bottom: 0; }
 
-.about-figure img,
-.hero-figure img { border-radius: var(--radius-md); }
+.about-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
 .about-list,
 .kategori-list { padding-left: var(--spacing-lg); }
+.about-list li,
+.kategori-list li { margin-bottom: var(--spacing-sm); }
 .kategori-list strong { display: block; color: var(--color-text-accent); }
 
 
 /* 7. TABEL & FOOTER */
-.table-wrap { overflow-x: auto; }
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
 table {
   width: 100%;
   border-collapse: collapse;
   background: var(--color-bg-surface);
 }
-caption { margin-bottom: var(--spacing-sm); color: var(--color-text-muted); font-weight: 700; text-align: left; }
+caption {
+  padding-bottom: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  text-align: left;
+  caption-side: top;
+}
 th,
-td { padding: var(--spacing-sm) var(--spacing-md); text-align: left; border: 1px solid var(--color-border-default); }
-thead th { color: var(--color-text-on-brand); background: var(--color-brand-primary); }
+td {
+  padding: 0.75rem var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-default);
+}
+tbody tr:last-child th,
+tbody tr:last-child td { border-bottom: 0; }
+thead th { color: var(--color-text-on-brand); background: var(--color-brand-primary); border-bottom: 0; }
 tbody th { background: var(--color-bg-page); }
+tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-space: nowrap; }
 
 .site-footer {
-  margin-top: var(--spacing-xl);
-  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+  padding: var(--spacing-xl) var(--spacing-md);
   color: var(--color-text-on-brand);
   text-align: center;
   background: var(--color-text-default);
 }
-.site-footer p { margin-inline: auto; }
+.site-footer p { max-width: none; margin: 0; font-size: 0.9375rem; }
+
+
+/* 8. BANNER HALAMAN */
+.produk-intro,
+.galeri-intro,
+.kontak-intro {
+  margin-bottom: var(--spacing-lg);
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2rem);
+  color: var(--color-text-on-brand);
+  background: var(--color-brand-primary);
+  border-radius: var(--radius-lg);
+}
+.produk-intro .eyebrow,
+.galeri-intro .eyebrow,
+.kontak-intro .eyebrow { color: var(--color-text-on-brand-soft); }
+.produk-intro p:last-child,
+.galeri-intro p:last-child,
+.kontak-intro p:last-child { margin-bottom: 0; }
+
+/* Tentang: teks di kiri, foto biji kopi ukuran sedang di kanan */
+.page-intro { padding-block: 4rem; }
+.page-intro .page-intro-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22rem;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+.page-intro h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+}
+.page-intro p:last-child { margin-bottom: 0; }
+.page-intro .about-figure img {
+  aspect-ratio: 4 / 3;
+  border-radius: 1.75rem;
+  box-shadow: 0 1rem 2rem rgb(47 33 24 / 0.18);
+}
+
+/* Tentang: bagian "Kenapa pilih" di latar lebih gelap, daftar berupa kartu bergaris kiri */
+.page-intro + section {
+  padding-block: 4rem;
+  background: var(--color-bg-section-alt);
+  border-top: 1px solid var(--color-border-default);
+}
+.about-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.about-list li {
+  max-width: none;
+  margin: 0;
+  padding: 0.875rem var(--spacing-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  border-left: 3px solid var(--color-accent-line);
+  border-radius: var(--radius-sm);
+}
+
+/* Beri jarak antarbagian di halaman dalam */
+.page > section + section { margin-top: var(--spacing-md); }
