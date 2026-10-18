@@ -43,6 +43,7 @@
   --shadow-card: 0 0.25rem 1rem rgb(47 33 24 / 0.07);
   --shadow-header: 0 1px 0 var(--color-border-default);
   --container-width: 62rem;
+  --space-section: clamp(1.5rem, 1rem + 2.5vw, 3rem); /* jarak antarbagian, fluida */
 
   /* Gaya tampilan baru */
   --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
@@ -79,7 +80,7 @@ figcaption { margin-top: var(--spacing-sm); color: var(--color-text-muted); font
 a { color: var(--color-brand-primary); text-underline-offset: 0.2em; }
 a:hover { color: var(--color-brand-primary-strong); }
 
-h1, h2, h3 { line-height: 1.2; text-wrap: balance; letter-spacing: -0.01em; }
+h1, h2, h3 { overflow-wrap: break-word; line-height: 1.2; text-wrap: balance; letter-spacing: -0.01em; }
 h1, h2 { font-family: var(--font-display); font-weight: 400; }
 h3 { font-weight: 700; }
 h1 { font-size: clamp(2rem, 6vw, 3rem); margin-block: 0 var(--spacing-md); }
@@ -155,12 +156,14 @@ p { margin-block: 0 var(--spacing-md); }
 /* Navigasi */
 .nav {
   display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
   color: var(--color-text-default);
   font-family: var(--font-display);
   font-size: 1.375rem;
@@ -168,8 +171,10 @@ p { margin-block: 0 var(--spacing-md); }
   text-decoration: none;
 }
 .brand:hover { color: var(--color-brand-primary); }
+.brand-logo { flex: none; }
 .nav ul {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
   padding: 0;
@@ -178,7 +183,9 @@ p { margin-block: 0 var(--spacing-md); }
 }
 .nav li { max-width: none; }
 .nav ul a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: var(--spacing-xs) var(--spacing-sm);
   color: var(--color-text-default);
   font-size: 0.9375rem;
@@ -195,13 +202,13 @@ p { margin-block: 0 var(--spacing-md); }
 }
 
 .page { padding-block: var(--spacing-xl); }
-main > section { padding-block: var(--spacing-xl); }
+main > section { padding-block: var(--space-section); }
 
 /* Profil: dua kolom */
 .profil-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: var(--spacing-2xl);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-xl);
   align-items: center;
 }
 
@@ -211,9 +218,9 @@ main > section { padding-block: var(--spacing-xl); }
 /* ---- 5a. HERO ---- */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  grid-template-areas: "content image";
-  gap: var(--spacing-2xl);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "content" "image";
+  gap: var(--spacing-xl);
   align-items: center;
   width: min(100% - 2rem, var(--container-width));
   margin: var(--spacing-lg) auto var(--spacing-md);
@@ -293,10 +300,9 @@ button:hover {
 .product-grid,
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-lg);
 }
-.gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 /* Produk baru: Grid satu kolom selebar 26rem */
 .menu-grid.menu-grid-new { grid-template-columns: minmax(0, 26rem); }
@@ -432,7 +438,7 @@ button:hover {
 /* ---- 5d. FORM ---- */
 .kontak-form-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-lg);
   align-items: start;
 }
@@ -502,6 +508,7 @@ legend { padding-inline: var(--spacing-sm); }
   border-radius: var(--radius-sm);
 }
 audio { display: block; width: 100%; max-width: 32rem; }
+.form-actions .cta-button { max-width: 100%; }
 
 
 /* 6. BAGIAN HALAMAN */
@@ -566,11 +573,14 @@ audio { display: block; width: 100%; max-width: 32rem; }
 
 
 /* 7. TABEL & FOOTER */
-.table-wrap {
+.table-scroll {
+  max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
 }
+.table-scroll:focus-visible { outline: 3px solid var(--color-border-focus); outline-offset: 3px; }
+.table-scroll table { min-width: 30rem; }
 table {
   width: 100%;
   border-collapse: collapse;
@@ -623,11 +633,11 @@ tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-s
 .kontak-intro p:last-child { margin-bottom: 0; }
 
 /* Tentang: teks di kiri, foto biji kopi ukuran sedang di kanan */
-.page-intro { padding-block: 4rem; }
+.page-intro { padding-block: var(--space-section); }
 .page-intro .page-intro-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 22rem;
-  gap: var(--spacing-2xl);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-xl);
   align-items: center;
 }
 .page-intro h1 {
@@ -644,7 +654,7 @@ tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-s
 
 /* Tentang: bagian "Kenapa pilih" di latar lebih gelap, daftar berupa kartu bergaris kiri */
 .page-intro + section {
-  padding-block: 4rem;
+  padding-block: var(--space-section);
   background: var(--color-bg-section-alt);
   border-top: 1px solid var(--color-border-default);
 }
@@ -668,3 +678,38 @@ tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-s
 
 /* Beri jarak antarbagian di halaman dalam */
 .page > section + section { margin-top: var(--spacing-md); }
+
+/* 9. RESPONSIVE: breakpoint berbasis konten (mobile-first, min-width) */
+
+/* 42rem: navigasi punya ruang untuk satu baris; galeri cukup lebar untuk 2 kolom */
+@media (min-width: 42rem) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 48rem: teks + gambar/form bisa bersisian; katalog 2 kolom */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas: "content image";
+    gap: var(--spacing-2xl);
+  }
+  .profil-inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: var(--spacing-2xl); }
+  .page-intro .page-intro-inner {
+    grid-template-columns: minmax(0, 1fr) clamp(16rem, 35vw, 22rem);
+    gap: var(--spacing-2xl);
+  }
+  .kontak-form-section { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .menu-grid,
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 60rem: brand di kiri, menu di kanan; katalog 3 kolom */
+@media (min-width: 60rem) {
+  .nav { flex-direction: row; align-items: center; justify-content: space-between; }
+  .menu-grid,
+  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

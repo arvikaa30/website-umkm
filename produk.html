@@ -8,6 +8,7 @@
       content="Semua produk kopi Ngopa Ngopi lengkap dengan kategori dan daftar harga."
     />
     <title>Produk Ngopa Ngopi - Website UMKM</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -15,7 +16,7 @@
 
     <header class="site-header">
       <nav class="nav" aria-label="Navigasi utama">
-        <a class="brand" href="index.html">Ngopa Ngopi</a>
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/logo.png" width="36" height="36" alt="" />Ngopa Ngopi</a>
         <ul>
           <li><a href="index.html">Beranda</a></li>
           <li><a href="tentang.html">Tentang Kami</a></li>
@@ -50,7 +51,7 @@
         <h2 id="produk-pilihan-title">Produk Pilihan</h2>
         <div class="product-grid">
           <article class="product-card">
-            <img class="product-thumb" src="assets/images/kopi-tubruk.jpg" alt="Kopi Tubruk Signature" loading="lazy" />
+            <img width="800" height="600" class="product-thumb" src="assets/images/kopi-tubruk.jpg" alt="Kopi Tubruk Signature" loading="lazy" />
             <span class="product-badge">Terlaris</span>
             <h3>Kopi Tubruk Signature</h3>
             <p>Diseduh kasar ala tradisional, pekat, dan pahitnya tegas.</p>
@@ -62,7 +63,7 @@
           </article>
 
           <article class="product-card">
-            <img class="product-thumb" src="assets/images/cold-brew-aren.jpg" alt="Cold Brew Aren" loading="lazy" />
+            <img width="800" height="600" class="product-thumb" src="assets/images/cold-brew-aren.jpg" alt="Cold Brew Aren" loading="lazy" />
             <span class="product-badge">Segar</span>
             <h3>Cold Brew Aren</h3>
             <p>Diseduh dingin semalaman, halus di lidah, manis gula aren.</p>
@@ -74,7 +75,7 @@
           </article>
 
           <article class="product-card">
-            <img class="product-thumb" src="assets/images/kopsu-aren.jpg" alt="Es Kopi Susu Gula Aren" loading="lazy" />
+            <img width="800" height="600" class="product-thumb" src="assets/images/kopsu-aren.jpg" alt="Es Kopi Susu Gula Aren" loading="lazy" />
             <span class="product-badge">Hemat</span>
             <h3>Es Kopi Susu Gula Aren</h3>
             <p>Kopi robusta, susu creamy, dan gula aren yang legit.</p>
@@ -95,9 +96,9 @@
           <article class="card" data-category="creamy">
             <div class="pic raspberry">
               <span class="badge">Baru</span>
-              <img
+              <img width="800" height="600"
                 src="assets/images/raspberry-latte.jpg"
-                alt="Es kopi susu dengan saus raspberry di dasar gelas, dituang bertingkat, dan ditaburi raspberry segar di atasnya"
+                alt="Raspberry Danish Latte: es kopi susu bertingkat dengan saus raspberry dan raspberry segar"
                 loading="lazy"
               />
             </div>
@@ -115,7 +116,7 @@
         <div class="menu-grid" id="menuGrid">
           <article class="card" data-category="klasik">
             <div class="pic klasik">
-              <img src="assets/images/kopi-tubruk.jpg" alt="Kopi Tubruk Signature" loading="lazy" />
+              <img width="800" height="600" src="assets/images/kopi-tubruk.jpg" alt="Kopi Tubruk Signature" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -128,7 +129,7 @@
 
           <article class="card" data-category="fresh">
             <div class="pic fresh">
-              <img src="assets/images/cold-brew-aren.jpg" alt="Cold Brew Aren" loading="lazy" />
+              <img width="800" height="600" src="assets/images/cold-brew-aren.jpg" alt="Cold Brew Aren" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -141,7 +142,7 @@
 
           <article class="card" data-category="creamy">
             <div class="pic creamy">
-              <img src="assets/images/kopsu-aren.jpg" alt="Es Kopi Susu Gula Aren" loading="lazy" />
+              <img width="800" height="600" src="assets/images/kopsu-aren.jpg" alt="Es Kopi Susu Gula Aren" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -154,7 +155,7 @@
 
           <article class="card" data-category="creamy">
             <div class="pic creamy">
-              <img src="assets/images/caramel-macchiato.jpg" alt="Caramel Macchiato" loading="lazy" />
+              <img width="800" height="600" src="assets/images/caramel-macchiato.jpg" alt="Caramel Macchiato" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -167,7 +168,7 @@
 
           <article class="card" data-category="matcha">
             <div class="pic matcha">
-              <img src="assets/images/matcha-kopi.jpg" alt="Matcha Espresso" loading="lazy" />
+              <img width="800" height="600" src="assets/images/matcha-kopi.jpg" alt="Matcha Espresso" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -180,7 +181,7 @@
 
           <article class="card" data-category="creamy">
             <div class="pic creamy">
-              <img src="assets/images/hazelnut-latte.jpg" alt="Hazelnut Latte" loading="lazy" />
+              <img width="800" height="600" src="assets/images/hazelnut-latte.jpg" alt="Hazelnut Latte" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
@@ -200,9 +201,9 @@
       <section aria-labelledby="harga-title">
         <h2 id="harga-title">Daftar Harga</h2>
 
-        <div class="table-wrap">
+        <div class="table-scroll" role="region" aria-labelledby="daftar-harga-caption" tabindex="0">
           <table>
-            <caption>Daftar harga produk Ngopa Ngopi</caption>
+            <caption id="daftar-harga-caption">Daftar harga produk Ngopa Ngopi</caption>
 
             <thead>
               <tr>
