@@ -153,12 +153,14 @@ p { margin-block: 0 var(--spacing-md); }
   margin-inline: auto;
 }
 
-/* Navigasi */
+/* Navigasi (mobile-first): brand + tombol hamburger, menu dibuka/ditutup lewat JavaScript (js/script.js) */
 .nav {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--spacing-sm);
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 .brand {
   display: inline-flex;
@@ -172,23 +174,68 @@ p { margin-block: 0 var(--spacing-md); }
 }
 .brand:hover { color: var(--color-brand-primary); }
 .brand-logo { flex: none; }
+
+/* Hamburger: <button> yang dikendalikan js/script.js lewat aria-expanded.
+   Tanpa JavaScript tombol disembunyikan dan menu tetap tampil (class .js ditambahkan oleh script). */
+.nav-toggle {
+  display: none;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  background: transparent;
+  border: 2px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.js .nav-toggle { display: flex; }
+.nav-toggle:focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text-default);
+  border-radius: 2px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.nav-toggle-bar { position: relative; }
+.nav-toggle-bar::before,
+.nav-toggle-bar::after { position: absolute; left: 0; content: ""; }
+.nav-toggle-bar::before { top: -7px; }
+.nav-toggle-bar::after { top: 7px; }
+/* Menu terbuka (aria-expanded="true"): hamburger menjadi X */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* Daftar menu: tanpa JS tetap tampil; dengan JS tersembunyi di mobile sampai tombol ditekan */
 .nav ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  flex-basis: 100%;
+  flex-direction: column;
+  gap: 0;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.nav li { max-width: none; }
+.js .nav ul { display: none; }
+.js .nav-toggle[aria-expanded="true"] ~ ul { display: flex; }
+.nav li { max-width: none; border-top: 1px solid var(--color-border-default); }
 .nav ul a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   min-height: 44px;
   padding: var(--spacing-xs) var(--spacing-sm);
   color: var(--color-text-default);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   border-bottom: 2px solid transparent;
@@ -681,7 +728,7 @@ tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-s
 
 /* 9. RESPONSIVE: breakpoint berbasis konten (mobile-first, min-width) */
 
-/* 42rem: navigasi punya ruang untuk satu baris; galeri cukup lebar untuk 2 kolom */
+/* 42rem: galeri cukup lebar untuk 2 kolom */
 @media (min-width: 42rem) {
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -703,9 +750,20 @@ tbody td:last-child { color: var(--color-text-accent); font-weight: 700; white-s
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* 60rem: brand di kiri, menu di kanan; katalog 3 kolom */
+/* 60rem (960px): lima tautan + brand muat dalam satu baris, jadi hamburger disembunyikan;
+   brand di kiri, menu di kanan; katalog 3 kolom */
 @media (min-width: 60rem) {
-  .nav { flex-direction: row; align-items: center; justify-content: space-between; }
+  .js .nav-toggle { display: none; }
+  .nav ul,
+  .js .nav ul {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  .nav li { border-top: 0; }
+  .nav ul a { display: inline-flex; font-size: 0.9375rem; }
   .menu-grid,
   .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
